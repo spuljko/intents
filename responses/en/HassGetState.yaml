@@ -63,3 +63,20 @@ responses:
 
       how_many: |
         {{ query.matched | length }}
+
+      sensor_measure_state: |
+        {% if not query.matched %}
+          Sensor not found
+        {% else: %}
+          {% set match = query.matched | map(attribute="name") | sort | list %}
+          {% if match | length == 1 %}
+            {{ state.state_with_unit }}
+          {% elif match | length > 4 %}
+            {{ match[:3] | join(", ") }} and {{ (match | length - 3) }} more
+          {% else %}
+            {%- for name in match -%}
+              {% if not loop.first and not loop.last %}, {% elif loop.last and not loop.first %} and {% endif -%}
+              {{ name }}: {{ state.state_with_unit }}
+            {%- endfor -%}
+          {% endif %}
+        {% endif %}

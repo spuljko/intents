@@ -284,6 +284,16 @@ lists:
       - in: "clear"
         out: "closed"
 
+  # sensors
+  sensor_classes:
+    values:
+      - in: "[air] temperature"
+        out: "temperature"
+      - in: "air quality"
+        out: "aqi"
+      - in: "[air] humidity [level]|humity in [the] air"
+        out: "humidity"
+
 expansion_rules:
   name: "[the] {name}"
   area: "[the] {area}"

@@ -77,6 +77,7 @@ entities:
     state: "42"
     attributes:
       unit_of_measurement: "°F"
+      device_class: "temperature"
 
   - name: "Living Room Lamp"
     id: "light.living_room_lamp"
@@ -342,3 +343,24 @@ entities:
       out: "on"
     attributes:
       device_class: window
+
+  # sensors
+  - name: "Wine Fridge"
+    id: "sensor.humidity_wine_fridge"
+    state: "60"
+    attributes:
+      device_class: "humidity"
+
+  - name: "AQ Sensor Humidity"
+    id: "sensor.humidity_aq"
+    area: living_room
+    state: "60"
+    attributes:
+      device_class: "humidity"
+
+  - name: "AQ Sensor AQI"
+    id: "sensor.aqi"
+    area: living_room
+    state: "21"
+    attributes:
+      device_class: "aqi"

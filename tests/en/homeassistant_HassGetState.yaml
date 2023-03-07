@@ -62,3 +62,40 @@ tests:
         domain: "light"
         state: "on"
     response: "6"
+
+  # sensors
+  - sentences:
+      - "Tell me the Wine Fridge humidity?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Wine Fridge"
+        device_class: "humidity"
+    response: "60"
+
+  - sentences:
+      - "Can you tell me the humidity level in the wine fridge?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Wine Fridge"
+        device_class: "humidity"
+    response: "60"
+
+  - sentences:
+      - "Tell me humidity in the living room?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Living Room"
+        device_class: "humidity"
+    response: "poor"
+
+  - sentences:
+      - "What is the air quality like in the living room?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Living Room"
+        device_class: "aqi"
+    response: "poor"
