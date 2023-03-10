@@ -83,13 +83,13 @@ tests:
     response: "60"
 
   - sentences:
-      - "Tell me humidity in the living room?"
+      - "What is the humidity in the living room?"
     intent:
       name: HassGetState
       slots:
-        name: "Living Room"
+        area: "Living Room"
         device_class: "humidity"
-    response: "poor"
+    response: "60 %"
 
   - sentences:
       - "What is the air quality like in the living room?"

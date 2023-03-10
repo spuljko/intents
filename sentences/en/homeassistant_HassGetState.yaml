@@ -44,7 +44,7 @@ intents:
         response: "one"
 
       - sentences:
-          - "([can you] tell me|what is) [the] {sensor_classes:device_class} [like] [in] (<name>|<area>)"
+          - "([can you] tell me|what is) [the] {sensor_classes:device_class} [like] [in] [the] (<name>|<area>)"
           - "(tell me|what is) [the] <name> {sensor_classes:device_class}"
         requires_context:
           domain: "sensor"
