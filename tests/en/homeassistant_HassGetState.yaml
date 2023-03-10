@@ -83,6 +83,15 @@ tests:
     response: "60"
 
   - sentences:
+      - "What is the humidity of the AQ Sensor?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "AQ Sensor"
+        device_class: "humidity"
+    response: "60"
+
+  - sentences:
       - "What is the humidity in the living room?"
     intent:
       name: HassGetState
