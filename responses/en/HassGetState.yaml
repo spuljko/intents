@@ -80,3 +80,12 @@ responses:
             {%- endfor -%}
           {% endif %}
         {% endif %}
+
+      sensor_measure_area: |
+        {% set numeric = query.matched | map(attribute='state') | map('float', 'no_number') | reject('eq', 'no_number') | list %}
+        {% set unit = query.matched | selectattr('attributes.unit_of_measurement', 'defined') |  map(attribute='attributes.unit_of_measurement') | select() | list %}
+        {% if not numeric %}
+          No values found
+        {% else %}
+          {{ numeric | sum / numeric | count }} {{ unit | first if unit }}
+        {% endif %}

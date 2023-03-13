@@ -285,12 +285,18 @@ lists:
         out: "closed"
 
   # sensors
-  sensor_classes:
+  sensor_temperature:
     values:
       - in: "[air] temperature"
         out: "temperature"
+
+  sensor_aqi:
+    values:
       - in: "air quality"
         out: "aqi"
+
+  sensor_humidity:
+    values:
       - in: "[air] humidity [level]|humity in [the] air"
         out: "humidity"
 
