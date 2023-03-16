@@ -1,6 +1,16 @@
 language: en
 tests:
   - sentences:
+      - "what is the state of AQ Sensor AQI in the living room?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "AQ Sensor AQI"
+        domain: sensor
+        area: "Living Room"
+    response: "Aq sensor aqi is 21"
+
+  - sentences:
       - "what is the outside temperature?"
     intent:
       name: HassGetState
@@ -17,7 +27,7 @@ tests:
         name: "Wine Fridge"
         device_class: "humidity"
         domain: sensor
-    response: "60"
+    response: "80 %"
 
   - sentences:
       - "Can you tell me the humidity level in the wine fridge?"
@@ -27,7 +37,7 @@ tests:
         name: "Wine Fridge"
         device_class: "humidity"
         domain: sensor
-    response: "60"
+    response: "80 %"
 
   - sentences:
       - "What is the humidity of the AQ Sensor?"
@@ -47,7 +57,7 @@ tests:
         area: "Living Room"
         device_class: "humidity"
         domain: sensor
-    response: "60.0 %"
+    response: "AQ Sensor: 80 %, Wine Fridge: 80 %"
 
   - sentences:
       - "What is the air quality like in the living room?"
@@ -58,3 +68,13 @@ tests:
         device_class: "aqi"
         domain: sensor
     response: "23.0"
+
+  - sentences:
+      - "Tell me the Wine Fridge temperature?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Wine Fridge"
+        device_class: "temperature"
+        domain: sensor
+    response: "80 %"

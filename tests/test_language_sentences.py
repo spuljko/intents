@@ -116,6 +116,7 @@ def do_test_language_sentences_file(
             # Check for all match slots
             for match_name, match_value in matched_slots.items():
                 actual_value = actual_slots.get(match_name)
+                print(f'match_name: {match_name} match_value: {match_value} actual_value: {actual_value}')
                 assert (
                     actual_value is not None
                 ), f"Missing slot {match_name} for: {sentence} (value={match_value})"
@@ -156,6 +157,7 @@ def do_test_language_sentences_file(
             # list item may have a "context" which is added to the result
             # context if that item is matched.
             actual_context = intent.get("context", {})
+            print(f'ACTUAL CONTEXT {actual_context} result: {result.context}')
             if actual_context:
                 matched_context = result.context
                 assert (

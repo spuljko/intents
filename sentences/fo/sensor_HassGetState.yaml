@@ -1,0 +1,74 @@
+language: fo
+intents:
+  HassGetState:
+    data:
+      # general
+      # - sentences:
+      #     - "(tell me|what is) [the state of] <name> [in <area>]"
+      #   slots:
+      #     domain: "sensor"
+      #   response: "one"
+
+      # #humidity
+      # - sentences:
+      #     - "[[can you] tell me|what is] [the] {sensor_humidity:device_class} [like] [in|of] <name>"
+      #     - "[tell me|what is] <name> {sensor_humidity:device_class}"
+      #   slots:
+      #     domain: "sensor"
+      #     device_class: "humidity"
+      #   response: "sensor_measure_state"
+
+      # - sentences:
+      #     - "[[can you] tell me|what is] [the] {sensor_humidity:device_class} [like] [in] <area>"
+      #     - "[tell me|what is] [the] <area> {sensor_humidity:device_class}"
+      #   slots:
+      #     domain: "sensor"
+      #     device_class: "humidity"
+      #   response: sensor_measure_state
+
+      #temperature
+      # - sentences:
+      #     - "([can you] tell me|what is) [the] {sensor_temperature:device_class} [like] [in|of] <name>"
+      #     - "(tell me|what is) <name> {sensor_temperature:device_class}"
+      #   slots:
+      #     domain: "sensor"
+      #     device_class: "temperature"
+      #   response: sensor_measure_state
+
+      # - sentences:
+      #     - "([can you] tell me|what is) [the] {sensor_temperature:device_class} [like] [in] <area>"
+      #     - "(tell me|what is) [the] <area> {sensor_temperature:device_class}"
+      #   slots:
+      #     domain: "sensor"
+      #     device_class: "temperature"
+      #   response: sensor_measure_area
+
+      # AQI
+      # - sentences:
+      #     - "([can you] tell me|what is) [the] {sensor_aqi:device_class} [like] [in] <area>"
+      #     - "(tell me|what is) [the] <area> {sensor_aqi:device_class}"
+      #   slots:
+      #     domain: "sensor"
+      #     device_class: "aqi"
+      #   response: sensor_measure_area
+
+      #general
+      - sentences:
+          - "([can you] tell me|what is) [the] {sensor_classes:device_class} [like] [in|of] <name>"
+          #- "(tell me|what is) <name> {sensor_classes:device_class}"
+        slots:
+          domain: "sensor"
+          device_class:
+            - temperature
+            - humidity
+        response: sensor_measure_state
+
+      # - sentences:
+      #     - "([can you] tell me|what is) [the] {sensor_classes:device_class} [like] [in] <area>"
+      #     - "(tell me|what is) [the] <area> {sensor_classes:device_class}"
+      #   slots:
+      #     domain: "sensor"
+      #     device_class:
+      #       - temperature
+      #       - humidity
+      #   response: sensor_measure_area

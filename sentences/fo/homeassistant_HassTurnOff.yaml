@@ -1,0 +1,5 @@
+language: fo
+intents:
+  HassTurnOff:
+    data:
+      - sentences: []

@@ -1,0 +1,21 @@
+language: fo
+tests:
+  - sentences:
+      - "is any curtain closed?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        state: "closed"
+        device_class: "curtain"
+    response: "No"
+
+  - sentences:
+      - "is any blind closed?"
+    intent:
+      name: HassGetState
+      slots:
+        domain: cover
+        state: "closed"
+        device_class: "blind"
+    response: "No"

@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from typing import Any, Dict, Optional, List, Set, Tuple
-
+import logging
 from hassil import parse_sentence
 from hassil.intents import SlotList, TextSlotList, is_template
 from hassil.recognize import RecognizeResult
@@ -79,6 +79,7 @@ def get_matched_states(
 
     device_class: Optional[str] = None
     device_class_entity = result.entities.get("device_class")
+    #print(f'MATCHING device_class_entity: {device_class_entity} device_class: {device_class} entities {result.entities}')
     if device_class_entity is not None:
         device_class = device_class_entity.value
 
@@ -96,6 +97,7 @@ def get_matched_states(
 
     matched: List[State] = []
     unmatched: List[State] = []
+    print('HERE!!!!!!!!!!!!!!!')
 
     for state in states:
         if entity_name is not None:
@@ -116,16 +118,34 @@ def get_matched_states(
             # Filter by area
             continue
 
+        print(f'domain_name: {domain_name}')
         if (domain_name is not None) and (domain_name != state.domain):
             # Filter by domain
             continue
 
-        if (device_class is not None) and (
-            device_class != state.attributes.get("device_class")
-        ):
-            # Filter by entity name
-            continue
+        print(f'1 device_class: {device_class} state_name: {state_name} state: {state}')
+        # if (device_class)
+        if device_class is not None:
+            if (isinstance(device_class, list)):
+                print('it is list!!!')
 
+                for item in device_class:
+                    print(f'item: {item} dc {state.attributes.get("device_class")}')
+                    if item == state.attributes.get("device_class"):
+                        device_class_match = True
+                        continue
+
+                if not device_class_match:
+                    print('NOT FOUND!!!!')
+                    # Filter by device class
+                    continue
+                print('FOUND!!!!')
+            else:
+                if (device_class != state.attributes.get("device_class")):
+                    # Filter by device class
+                    continue
+
+        print('MATCIHNG state {state_name} xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
         if state_name is not None:
             # Match state
             if state.hass_state == state_name:

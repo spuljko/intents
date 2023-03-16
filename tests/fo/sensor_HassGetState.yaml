@@ -1,0 +1,104 @@
+language: fo
+tests:
+  # - sentences:
+  #     - "what is the state of AQ Sensor AQI in the living room?"
+  #   intent:
+  #     name: HassGetState
+  #     slots:
+  #       name: "AQ Sensor AQI"
+  #       domain: sensor
+  #       area: "Living Room"
+  #   response: "Aq sensor aqi is 21"
+
+  # - sentences:
+  #     - "what is the outside temperature?"
+  #   intent:
+  #     name: HassGetState
+  #     slots:
+  #       name: "Outside Temperature"
+  #       domain: sensor
+  #   response: "Outside temperature is 42 °F"
+
+  # - sentences:
+  #     - "Tell me the Wine Fridge humidity?"
+  #   intent:
+  #     name: HassGetState
+  #     slots:
+  #       name: "Wine Fridge"
+  #       device_class: "humidity"
+  #       domain: sensor
+  #   response: "80 %"
+
+  - sentences:
+      - "Can you tell me the humidity in the Wine Fridge?"
+      #- "What is humidity level in the wine fridge?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Wine Fridge"
+        device_class: "humidity"
+        domain: "sensor"
+    response: "80 %"
+
+  - sentences:
+      - "Can you tell me the temperature in the Wine Fridge?"
+      #- "What is humidity level in the wine fridge?"
+    intent:
+      name: HassGetState
+      slots:
+        name: "Wine Fridge"
+        device_class: "temperature"
+        domain: "sensor"
+    response: "512"
+
+  # - sentences:
+  #     - "What is the humidity of the AQ Sensor?"
+  #   intent:
+  #     name: HassGetState
+  #     slots:
+  #       name: "AQ Sensor"
+  #       device_class: "humidity"
+  #       domain: sensor
+  #   response: "60 %"
+
+  # - sentences:
+  #     - "What is the humidity in the living room?"
+  #   intent:
+  #     name: HassGetState
+  #     slots:
+  #       area: "Living Room"
+  #       device_class: "humidity"
+  #       domain: sensor
+  #   response: "AQ Sensor: 80 %, Wine Fridge: 80 %"
+
+  # - sentences:
+  #     - "What is the air quality like in the living room?"
+  #   intent:
+  #     name: HassGetState
+  #     slots:
+  #       area: "Living Room"
+  #       device_class: "aqi"
+  #       domain: sensor
+  #   response: "23.0"
+
+  # - sentences:
+  #     - "Tell me the Wine Fridge temperature?"
+  #     - "What is the temperature in the Wine Fridge"
+  #   intent:
+  #     name: HassGetState
+  #     slots:
+  #       name: "Wine Fridge"
+  #       device_class: "temperature"
+  #       domain: sensor
+  #   response: "51 °F"
+
+  # - sentences:
+  #     - "what is the temperature in the living room?"
+  #     - "tell me the living room temperature?"
+  #   intent:
+  #     name: HassGetState
+  #     slots:
+  #       area: "Living Room"
+  #       device_class: "temperature"
+  #       domain: sensor
+  #   response: "60.5 °F"

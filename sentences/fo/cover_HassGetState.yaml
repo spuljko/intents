@@ -1,0 +1,13 @@
+language: fo
+intents:
+  HassGetState:
+    data:
+      - sentences:
+          - "(is|are) any {cover_classes:device_class} {cover_states:state} [in <area>]"
+        response: any
+        slots:
+          domain: cover
+          device_class:
+            - curtain
+            - blind
+            - garage_door

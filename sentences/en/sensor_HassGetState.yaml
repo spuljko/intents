@@ -9,7 +9,7 @@ intents:
           domain: "sensor"
         response: "one"
 
-      # humidity
+      #humidity
       - sentences:
           - "[[can you] tell me|what is] [the] {sensor_humidity:device_class} [like] [in|of] <name>"
           - "[tell me|what is] <name> {sensor_humidity:device_class}"
@@ -24,15 +24,24 @@ intents:
         slots:
           domain: "sensor"
           device_class: "humidity"
-        response: sensor_measure_area
+        response: sensor_measure_state
 
+      #temperature
       - sentences:
-          - "[[can you] tell me|what is] [the] {sensor_temperature:device_class} [like] [in] <area>"
+          #- "[[can you] tell me|what is] [the] {sensor_temperature:device_class} [like] [in] <area>"
           - "[tell me|what is] [the] <area> {sensor_temperature:device_class}"
         slots:
           domain: "sensor"
           device_class: "temperature"
-        response: sensor_measure_area
+        response: sensor_measure_state
+
+      # - sentences:
+      #     - "[[can you] tell me|what is] [the] {sensor_temperature:device_class} [like] [in] <area>"
+      #     #- "[tell me|what is] [the] <area> {sensor_temperature:device_class}"
+      #   slots:
+      #     domain: "sensor"
+      #     device_class: "temperature"
+      #   response: sensor_measure_area
 
       - sentences:
           - "[[can you] tell me|what is] [the] {sensor_aqi:device_class} [like] [in] <area>"

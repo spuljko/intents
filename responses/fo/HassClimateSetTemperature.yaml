@@ -1,0 +1,5 @@
+language: fo
+responses:
+  intents:
+    HassClimateSetTemperature:
+      default: "TODO: Temperature set"

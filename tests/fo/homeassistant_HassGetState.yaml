@@ -1,0 +1,6 @@
+language: fo
+tests:
+  - sentences: []
+    intent:
+      name: HassGetState
+      slots: {}

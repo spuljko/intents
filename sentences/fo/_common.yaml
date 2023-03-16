@@ -1,0 +1,335 @@
+language: "fo"
+responses:
+  errors:
+    no_intent: "Sorry, I couldn't understand that"
+    no_area: "No area named {{ area }}"
+    no_domain: "{{ area }} does not contain a {{ domain }}"
+    no_device_class: "{{ area }} does not contain a {{ device_class }}"
+    no_entity: "No device or entity named {{ entity }}"
+    handle_error: "An unexpected error occurred while handling the intent"
+lists:
+  color:
+    values:
+      - in: white
+        out: white
+      - in: black
+        out: black
+      - in: red
+        out: red
+      - in: orange
+        out: orange
+      - in: yellow
+        out: yellow
+      - in: green
+        out: green
+      - in: blue
+        out: blue
+      - in: purple
+        out: purple
+      - in: brown
+        out: brown
+  brightness:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+  temperature:
+    range:
+      type: "temperature"
+      from: 0
+      to: 100
+  temperature_unit:
+    values:
+      - "celsius"
+      - in: "c"
+        out: "celsius"
+      - "fahrenheit"
+      - in: "f"
+        out: "fahrenheit"
+  brightness_level:
+    values:
+      - in: (max|maximum|highest)
+        out: 100
+      - in: (minimum|lowest)
+        out: 1
+  on_off_states:
+    values:
+      - in: "on"
+        out: "on"
+      - in: "off"
+        out: "off"
+  on_off_domains:
+    values:
+      - in: light[s]
+        out: light
+      - in: fan[s]
+        out: fan
+      - in: switch[es]
+        out: switch
+  cover_states:
+    values:
+      - in: "open"
+        out: "open"
+      - in: "closed"
+        out: "closed"
+      - in: "opening"
+        out: "opening"
+      - in: "closing"
+        out: "closing"
+  cover_classes:
+    values:
+      - in: awning[s]
+        out: awning
+      - in: blind[s]
+        out: blind
+      - in: curtain[s]
+        out: curtain
+      - in: door[s]
+        out: door
+      - in: garage door[s]
+        out: garage
+      - in: gate[s]
+        out: gate
+      - in: shade[s]
+        out: shade
+      - in: shutter[s]
+        out: shutter
+      - in: window[s]
+        out: window
+  lock_states:
+    values:
+      - in: "locked"
+        out: "locked"
+      - in: "unlocked"
+        out: "unlocked"
+
+  # binary_sensor
+  bs_battery_states:
+    values:
+      - in: "low"
+        out: "on"
+      - in: "normal"
+        out: "off"
+
+  bs_battery_charging_states:
+    values:
+      - in: "charging"
+        out: "on"
+      - in: "not charging"
+        out: "off"
+
+  bs_carbon_monoxide_states:
+    values:
+      - in: "(detected|triggered|on)"
+        out: "on"
+      - in: "clear"
+        out: "off"
+
+  bs_cold_states:
+    values:
+      - in: "cold"
+        out: "on"
+      - in: "normal"
+        out: "off"
+
+  bs_connectivity_states:
+    values:
+      - in: "connected"
+        out: "on"
+      - in: "disconnected"
+        out: "off"
+
+  bs_door_states:
+    values:
+      - in: "open"
+        out: "on"
+      - in: "closed"
+        out: "off"
+
+  bs_garage_door_states:
+    values:
+      - in: "open"
+        out: "on"
+      - in: "closed"
+        out: "off"
+
+  bs_gas_states:
+    values:
+      - in: "(detected|triggered|on)"
+        out: "on"
+      - in: "clear"
+        out: "off"
+
+  bs_heat_states:
+    values:
+      - in: "hot"
+        out: "on"
+      - in: "normal"
+        out: "off"
+
+  bs_light_states:
+    values:
+      - in: "detected"
+        out: "on"
+      - in: "no light"
+        out: "off"
+
+  bs_lock_states:
+    values:
+      - in: "unlocked"
+        out: "on"
+      - in: "locked"
+        out: "off"
+
+  bs_moisture_states:
+    values:
+      - in: "wet"
+        out: "on"
+      - in: "dry"
+        out: "off"
+
+  bs_motion_states:
+    values:
+      - in: "(detected|triggered|on)"
+        out: "on"
+      - in: "clear"
+        out: "off"
+
+  bs_occupancy_states:
+    values:
+      - in: "(detected|triggered|on)"
+        out: "on"
+      - in: "clear"
+        out: "off"
+
+  bs_opening_states:
+    values:
+      - in: "open"
+        out: "on"
+      - in: "closed"
+        out: "off"
+
+  bs_plug_states:
+    values:
+      - in: "plugged in"
+        out: "on"
+      - in: "unplugged"
+        out: "off"
+
+  bs_power_states:
+    values:
+      - in: "(powered[ on]|power detected)"
+        out: "on"
+      - in: "(not powered|powered off)"
+        out: "off"
+
+  bs_presence_states:
+    values:
+      - in: "(home|present)"
+        out: "on"
+      - in: "(away|not present)"
+        out: "off"
+
+  bs_problem_states:
+    values:
+      - in: "detected"
+        out: "on"
+      - in: "ok"
+        out: "off"
+
+  bs_running_states:
+    values:
+      - in: "running"
+        out: "on"
+      - in: "not running"
+        out: "off"
+
+  bs_safety_states:
+    values:
+      - in: "unsafe"
+        out: "on"
+      - in: "safe"
+        out: "off"
+
+  bs_smoke_states:
+    values:
+      - in: "(detected|triggered|on)"
+        out: "on"
+      - in: "clear"
+        out: "off"
+
+  bs_sound_states:
+    values:
+      - in: "(detected|triggered|on)"
+        out: "on"
+      - in: "clear"
+        out: "off"
+
+  bs_tamper_states:
+    values:
+      - in: "(detected|tampered with)"
+        out: "on"
+      - in: "clear"
+        out: "off"
+
+  bs_update_states:
+    values:
+      - in: "update available"
+        out: "on"
+      - in: "(up to date|up-to-date)"
+        out: "off"
+
+  bs_vibration_states:
+    values:
+      - in: "(detected|vibrating)"
+        out: "on"
+      - in: "(clear|not vibrating)"
+        out: "off"
+
+  bs_window_states:
+    values:
+      - in: "open"
+        out: "on"
+      - in: "clear"
+        out: "closed"
+
+  # sensors
+  sensor_classes:
+    values:
+      - in: "[air] temperature"
+        out: "temperature"
+      - in: "air quality"
+        out: "aqi"
+      - in: "humidity" #"[air] humidity [level]|humity in [the] air"
+        out: "humidity"
+
+  sensor_temperature:
+    values:
+      - in: "[air] temperature"
+        out: "temperature"
+
+  sensor_aqi:
+    values:
+      - in: "air quality"
+        out: "aqi"
+
+  sensor_humidity:
+    values:
+      - in: "[air] humidity [level]|humity in [the] air"
+        out: "humidity"
+
+expansion_rules:
+  name: "[the] {name}"
+  area: "[the] {area}"
+  what_is: "(what's|whats|what is)"
+  brightness: "{brightness}[ ][%|percent]"
+  light: "[the] (light|lights|lighting)"
+  turn: "(turn|switch|change)"
+  temp: "(temp|temperature)"
+  temperature: "{temperature}[ ][°|degrees][ ][{temperature_unit}]"
+  open: "(open | raise)"
+  close: "(close|shut|lower)"
+  set: "(set|change|turn)"
+skip_words:
+  - "please"
+  - "can you"
